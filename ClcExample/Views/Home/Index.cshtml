@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Clc";
+}
+
+<style>
+    a {
+        color: black;
+        font-size: larger;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    p {
+        color: black;
+        font-size: larger;
+    }
+    
+
+    a:hover {
+        color: #007bff;
+    }
+</style>
+
+<div class="container d-flex align-items-center justify-content-center vh-100 flex-column">
+    <form class="text-center" method="post">
+        <input class="form-control form-control-lg mb-3" required placeholder="Введите ссылку" aria-label="Large" type="text" name="externalLink" />
+        <input type="submit" class="btn btn-primary" value="Сократить" />
+    </form>
+
+    @if (ViewData["Path"] != null && ViewData["ExternalLink"] != null)
+    {
+        <div class="mt-4 text-center">
+            <p>
+                Изначальная ссылка: <a href="@ViewData["ExternalLinkHref"]" target="_blank">@ViewData["ExternalLink"]</a>               
+            </p>
+            <p>
+                Укороченная ссылка: <a href="http://@ViewData["Path"]" target="_blank">@ViewData["Path"]</a>               
+            </p>
+        </div>
+    }
+</div>
